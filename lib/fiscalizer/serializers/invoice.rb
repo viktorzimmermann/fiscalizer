@@ -28,6 +28,7 @@ class Fiscalizer
           add_invoice_summary(xml)
           add_paragon_label(xml)
           add_specific_purpose(xml)
+          add_buyer_tax_id(xml)
         end
       end
 
@@ -79,6 +80,11 @@ class Fiscalizer
       def add_specific_purpose(xml)
         return if object.specific_purpose.nil?
         xml['tns'].SpecNamj object.specific_purpose
+      end
+
+      def add_buyer_tax_id(xml)
+        return if object.buyer_tax_id.blank?
+        xml['tns'].OibPrimateljaRacuna object.buyer_tax_id
       end
     end
   end
