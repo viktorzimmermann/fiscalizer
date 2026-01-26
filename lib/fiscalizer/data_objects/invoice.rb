@@ -6,7 +6,7 @@ class Fiscalizer
                    payment_method:, operator_pin:, subsequent_delivery:,
                    tax_vat: [], tax_spending: [], tax_other: [],
                    value_tax_liberation: nil, value_tax_margin: nil, value_non_taxable: nil,
-                   fees: [], paragon_label: nil, specific_purpose: nil)
+                   fees: [], paragon_label: nil, specific_purpose: nil, buyer_tax_id: nil)
 
       @uuid = uuid
       @time_sent = time_sent
@@ -30,6 +30,7 @@ class Fiscalizer
       @subsequent_delivery = subsequent_delivery
       @paragon_label = paragon_label
       @specific_purpose = specific_purpose
+      @buyer_tax_id = buyer_tax_id
     end
 
     attr_reader :uuid, :time_sent, :pin,
@@ -39,7 +40,7 @@ class Fiscalizer
                 :value_tax_liberation, :value_tax_margin, :value_non_taxable,
                 :fees, :summed_total, :payment_method,
                 :operator_pin, :subsequent_delivery,
-                :paragon_label, :specific_purpose
+                :paragon_label, :specific_purpose, :buyer_tax_id
 
     attr_accessor :security_code, :generated_xml
 
